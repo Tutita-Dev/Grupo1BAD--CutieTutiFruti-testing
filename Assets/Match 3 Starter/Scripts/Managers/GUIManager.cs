@@ -40,7 +40,7 @@ public class GUIManager : MonoBehaviour
     void Awake()
     {
         instance = GetComponent<GUIManager>();
-        MoveCounter = 5;
+        //MoveCounter = 5;
     }
 
     // Show the game over panel
@@ -93,14 +93,14 @@ public class GUIManager : MonoBehaviour
                 moveCounter = 0;
                 StartCoroutine(WaitForShifting());
             }
-            moveCounterTxt.text = moveCounter.ToString();
+            //moveCounterTxt.text = moveCounter.ToString();
         }
     }
 
     private IEnumerator WaitForShifting()
     {
         yield return new WaitUntil(() => !BoardManager.instance.IsPlayingAnim);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(0.25f);
         GameOver();
     }
 
