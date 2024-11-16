@@ -85,7 +85,7 @@ public class TestSuite
     }
 
     [Test]
-    public void GetRandomGrid_CaramelosCorrectos()
+    public void GetRandomGrid_FillGridWhitSprites()
     {
         //Generacion de cuadrícula aleatoria
         Sprite[,] grid = boardManager.GetRandomGrid(5, 5);
