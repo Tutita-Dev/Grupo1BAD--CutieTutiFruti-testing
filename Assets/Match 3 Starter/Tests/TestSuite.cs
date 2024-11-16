@@ -88,12 +88,12 @@ public class TestSuite
     public void GetRandomGrid_FillGridWhitSprites()
     {
         //Generacion de cuadrícula aleatoria
-        Sprite[,] grid = boardManager.GetRandomGrid(5, 5);
+        Sprite[,] grid = boardManager.GetRandomGrid(8, 8);
 
         //Verificar que cada celda tiene un Sprite de la lista de caramelos 
-        for (int y = 0; y < 5; y++)
+        for (int y = 0; y < 8; y++)
         {
-            for (int x = 0; x < 5; x++)
+            for (int x = 0; x < 8; x++)
             {
                 Assert.Contains(grid[x, y], boardManager.candies,
                     $"El elemento en ({x},{y}) no pertenece a la lista de caramelos");
