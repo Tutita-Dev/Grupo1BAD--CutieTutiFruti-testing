@@ -48,7 +48,7 @@ public class BoardManager : MonoBehaviour
     {
         instance = GetComponent<BoardManager>();
         Sprite[,] randomGrid = GetRandomGrid(xSize, ySize);
-        InitializeBoard(randomGrid);
+        //InitializeBoard(randomGrid);
     }
 
     public Sprite[,] GetRandomGrid(int columns, int rows)
@@ -78,39 +78,39 @@ public class BoardManager : MonoBehaviour
         return grid;
     }
 
-    public void InitializeBoard(Sprite[,] grid)
-    {
-        xSize = grid.GetLength(0);
-        ySize = grid.GetLength(1);
+    //public void InitializeBoard(Sprite[,] grid)
+    //{
+    //    xSize = grid.GetLength(0);
+    //    ySize = grid.GetLength(1);
 
-        Rect rect = tilePrefab.GetComponent<RectTransform>().rect;
-        tiles = new GameObject[xSize, ySize];
+    //    Rect rect = tilePrefab.GetComponent<RectTransform>().rect;
+    //    tiles = new GameObject[xSize, ySize];
 
-        float startX = -((xSize / 2) * rect.width);
-        float startY = ((ySize / 2) * rect.height);
-        if ((xSize % 2) == 0)
-            startX += rect.width / 2;
-        if ((ySize % 2) == 0)
-            startY -= rect.height / 2;
+    //    float startX = -((xSize / 2) * rect.width);
+    //    float startY = ((ySize / 2) * rect.height);
+    //    if ((xSize % 2) == 0)
+    //        startX += rect.width / 2;
+    //    if ((ySize % 2) == 0)
+    //        startY -= rect.height / 2;
 
-        DestroyChildren();
-        for (int y = 0; y < ySize; y++)
-        {
-            for (int x = 0; x < xSize; x++)
-            {
-                GameObject newTile = Instantiate(tilePrefab, transform);
-                Vector2 position = new Vector2(startX + (rect.width * x), startY - (rect.height * y));
-                newTile.GetComponent<RectTransform>().localPosition = position;
+    //    DestroyChildren();
+    //    for (int y = 0; y < ySize; y++)
+    //    {
+    //        for (int x = 0; x < xSize; x++)
+    //        {
+    //            GameObject newTile = Instantiate(tilePrefab, transform);
+    //            Vector2 position = new Vector2(startX + (rect.width * x), startY - (rect.height * y));
+    //            newTile.GetComponent<RectTransform>().localPosition = position;
 
-                var tile = newTile.GetComponent<Tile>();
-                tile.SetCandyType(grid[x, y]);
-                tile.boardManager = this;
-                tile.gridPos = new Vector2Int(x, y);
+    //            var tile = newTile.GetComponent<Tile>();
+    //            tile.SetCandyType(grid[x, y]);
+    //            tile.boardManager = this;
+    //            tile.gridPos = new Vector2Int(x, y);
 
-                tiles[x, y] = newTile;
-            }
-        }
-    }
+    //            tiles[x, y] = newTile;
+    //        }
+    //    }
+    //}
 
     public void InitializeBoard(string[,] charGrid)
     {
@@ -135,7 +135,7 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-        InitializeBoard(grid);
+       // InitializeBoard(grid);
     }
 
     public void DestroyChildren()
